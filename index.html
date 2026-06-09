@@ -4,52 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Izyanuddin | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Lightweight style adjustments to keep images beautifully structured */
-        .project-img {
-            display: block;
-            margin: 15px auto;
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #c084fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Layouts */
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-primary);
+            border-radius: 2px;
+        }
+
+        #about p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .skill-category h4 {
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-category p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Project Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #475569;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0284c7, #7c3aed);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card > p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Image Presenters */
+        .project-img-wrapper {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .project-single-img {
             max-width: 100%;
+            max-height: 400px;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            border: 1px solid var(--border-color);
         }
-        .project-gallery {
+
+        .project-web-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .project-web-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Tall layout specifically optimized for mobile screenshots (MY-Kuih Application) */
+        .project-mobile-gallery {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 15px 0;
+            margin: 25px 0;
         }
-        .project-gallery img {
-            max-width: 48%;
-            min-width: 280px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        /* Mobile app preview layout for MY-Kuih screenshots */
-        .mobile-gallery {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 15px 0;
-        }
-        .mobile-gallery img {
-            max-width: 30%;
-            min-width: 180px;
+
+        .project-mobile-gallery img {
+            width: 28%;
+            min-width: 150px;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-details-list ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-details-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .project-details-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 15px;
+        }
+
+        /* Education Layout */
+        .edu-timeline {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .edu-card {
+            border-left: 2px solid var(--accent-primary);
+            padding-left: 20px;
+            margin-left: 5px;
+        }
+
+        .edu-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .edu-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer Layout */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .project-mobile-gallery img {
+                width: 45%;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Muhammad Izyanuddin bin Aminuddin</h1>
-        <p>Computer Science Multimedia Computing Student</p>
+        <p>Computer Science & Multimedia Computing Undergraduate</p>
         <p class="contact-info">
             Email: <a href="mailto:muhammadizyanuddin@gmail.com">muhammadizyanuddin@gmail.com</a> | 
             Phone: +601132456948
@@ -69,164 +322,196 @@
 
         <section id="skills">
             <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <p><strong>Languages:</strong> C++, Java, Python, HTML, CSS, JavaScript</p>
-                <p><strong>Tools & Engines:</strong> Unity, Android Studio, Construct 2, Blender, NetBeans (JSP), VS Code</p>
-                <p><strong>Design & Multimedia:</strong> Adobe Premiere Pro, Adobe Animate</p>
-                <p><strong>Languages Spoken:</strong> Malay (Native), English (Intermediate), Japanese (Basic)</p>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <p>C++, Java, Python, HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools & Engines</h4>
+                    <p>Unity, Android Studio, Construct 2, Blender, NetBeans (JSP), VS Code</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Design & Multimedia</h4>
+                    <p>Adobe Premiere Pro, Adobe Animate</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Languages Spoken</h4>
+                    <p>Malay (Native), English (Intermediate), Japanese (Basic)</p>
+                </div>
             </div>
         </section>
 
         <section id="projects">
             <h2>Featured Projects</h2>
-            
-            <div class="project-card fyp">
-                <span class="badge">Final Year Project</span>
-                <h3>MY-Kuih Application: Real-Time Kuih Recognition for Recipe Retrieval</h3>
-                <p>
-                    An interactive, mobile-responsive intelligent multimedia application designed to preserve Malaysian culinary heritage. 
-                    The application features an image classification system that allows users to capture or upload photos of traditional delicacies 
-                    to receive instantaneous data breakdowns.
-                </p>
-
-                <div class="mobile-gallery">
-                    <img src="images/kuih.jpg" alt="MY-Kuih Welcome Screen">
-                    <img src="images/kuih2.jpg" alt="MY-Kuih Recognition Scan Panel">
-                    <img src="images/kuih3.jpg" alt="MY-Kuih Recipe Search Engine">
-                </div>
-
-                <div class="project-details-list">
-                    <ul>
-                        <li><strong>Computer Vision Core:</strong> Integrates a custom CNN-based image recognition model displaying real-time classification confidence percentages.</li>
-                        <li><strong>Heritage Analytics:</strong> Provides cultural insight data breakdowns, identifying historical regional origins (e.g., Melaka, Peranakan, Perak).</li>
-                        <li><strong>Nutritional & Recipe Tracking:</strong> Computes serving-size calorie counts (kcal) alongside dynamically populated core ingredient checklists.</li>
-                        <li><strong>Reverse Recipe Search Engine:</strong> Includes a query filter mechanism allowing users to search and parse out full recipe configurations based exclusively on an ingredient query input.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> Python, Convolutional Neural Networks (CNN), Android Studio, UI/UX Design</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Discount & Coupon Management Portal</h3>
-                <p>An enterprise-level web portal built to simplify promotional campaign creation and tracking. Features a centralized manager dashboard displaying live data aggregates, a conditional active coupon record register, and localized promotional configurations.</p>
+            <div class="projects-grid">
                 
-                <div class="project-gallery">
-                    <img src="images/dnc.png" alt="Portal Home Interface">
-                    <img src="images/dnc2.png" alt="Portal Live Analytics Dashboard">
+                <!-- MY-KUIH APPLICATION -->
+                <div class="project-card">
+                    <span class="badge">Final Year Project</span>
+                    <h3>MY-Kuih Application: Real-Time Kuih Recognition for Recipe Retrieval</h3>
+                    <p>An interactive, mobile-responsive intelligent multimedia application designed to preserve Malaysian culinary heritage. Features an image classification core allowing users to scan traditional delicacies to receive automated database details.</p>
+                    
+                    <!-- Beautiful 3-column mobile app tray -->
+                    <div class="project-mobile-gallery">
+                        <img src="images/kuih.jpg" alt="MY-Kuih Hub UI">
+                        <img src="images/kuih2.jpg" alt="MY-Kuih Scanning Mechanism">
+                        <img src="images/kuih3.jpg" alt="MY-Kuih Dynamic Query Engine">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li><strong>Computer Vision Core:</strong> Integrates a custom CNN-based image recognition model displaying real-time classification confidence percentages.</li>
+                            <li><strong>Heritage Analytics:</strong> Provides cultural insight data breakdowns, identifying historical regional origins (e.g., Melaka, Peranakan, Perak).</li>
+                            <li><strong>Nutritional & Recipe Tracking:</strong> Computes serving-size calorie counts (kcal) alongside dynamically populated core ingredient checklists.</li>
+                            <li><strong>Reverse Recipe Search Engine:</strong> Includes a query filter mechanism allowing users to search and parse out full recipe configurations based exclusively on an ingredient query input.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Python, Convolutional Neural Networks (CNN), Android Studio, UI/UX Design</div>
                 </div>
 
-                <div class="project-details-list">
-                    <ul>
-                        <li>Designed a multi-pane interface separating campaign overview metrics from database records.</li>
-                        <li>Implemented robust server-side processing for managing dynamic discount codes, custom percentage reductions, and expiration validations.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> Java, JSP (JavaServer Pages), NetBeans IDE, HTML/CSS, SQL Database</p>
-            </div>
+                <!-- DISCOUNT MANAGEMENT PORTAL -->
+                <div class="project-card">
+                    <h3>Discount & Coupon Management Portal</h3>
+                    <p>An enterprise-level web portal built to simplify promotional campaign creation and tracking. Features a centralized manager dashboard displaying live data aggregates, a conditional active coupon record register, and localized promotional configurations.</p>
+                    
+                    <div class="project-web-gallery">
+                        <img src="images/dnc.png" alt="Portal Home Interface">
+                        <img src="images/dnc2.png" alt="Portal Live Analytics Dashboard">
+                    </div>
 
-            <div class="project-card">
-                <h3>LogicGates Hero</h3>
-                <p>An educational interactive learning game designed to alleviate friction points in digital logic pedagogy. Features split-pane workspaces where users configure hardware gates to solve objective-driven circuit puzzles in real time.</p>
-                
-                <img class="project-img" src="images/lgh2.png" alt="LogicGates Hero Circuit Editor Panel" width="650">
-
-                <div class="project-details-list">
-                    <ul>
-                        <li>Built an interactive drag-and-drop inventory system supporting active logical components (AND, OR, NOT Gates).</li>
-                        <li>Programmed dynamic signal-line evaluations tracking binary state pathways (0 and 1 inputs) down to reactive endpoint lightbulb triggers.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> Construct 2, 2D Game Design</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Knight Defender</h3>
-                <p>A stylized, fast-paced 2D lane defense action game demanding quick positioning reflexes. Players maneuver a knight avatar across vertical tracks to intercept advancing enemy waves before they compromise the kingdom boundaries.</p>
-                
-                <img class="project-img" src="images/kd2.png" alt="Knight Defender In-Game Waves Panel" width="650">
-
-                <div class="project-details-list">
-                    <ul>
-                        <li>Programmed a dynamic tracking system monitoring level difficulty scaling, active timers, and live remaining counts.</li>
-                        <li>Engineered custom sprite variant spawning behaviors for distinct enemy classes including Evil Slimes, Bad Bats, and Great Golems.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> Unity / C#, 2D Pixel Art Animation</p>
-            </div>
-
-            <div class="project-card">
-                <h3>EcoReConnect Website</h3>
-                <p>A polished, environmental awareness portal structured to connect communities with ecology initiatives. Features modern CSS carousel banners highlighting mental health insights from nature, alongside built-in interactive engagement layers.</p>
-                
-                <img class="project-img" src="images/ercw.png" alt="EcoReConnect Web Hub Dashboard" width="650">
-
-                <div class="project-details-list">
-                    <ul>
-                        <li>Constructed a user-friendly navigation layout incorporating educational modules (Mangroves, Urban Parks).</li>
-                        <li>Embedded lightweight gamified front-end elements including a responsive ecology trivia quiz and an icon-matching mini-game.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-            </div>
-
-            <div class="project-card">
-                <h3>3D Playground Animation (Computer Graphics)</h3>
-                <p>A comprehensive 3D landscape prototyping project simulating a vibrant playground environment. Focuses heavily on strict geometric transformations, lighting configurations, and multi-asset keyframe animation.</p>
-                
-                <img class="project-img" src="images/3Dplayground.png" alt="3D Playground View Projection Map" width="650">
-
-                <div class="project-details-list">
-                    <ul>
-                        <li>Modeled, textured, and laid out interactive environmental components including slides, a wind turbine mill, swings, a see-saw, and rotating carousels.</li>
-                        <li>Configured complex animation paths, parent-child spatial hierarchies, and camera tracking sweeps to produce a cohesive environment render.</li>
-                    </ul>
-                </div>
-                <p><strong>Tech Stack:</strong> Blender / Low-Poly 3D Asset Design & Rigging</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Escape From FSKM</h3>
-                <p>A high-energy, narrative-driven 2D endless runner set inside the stylized school hallways of the FSKM faculty building at UiTM Shah Alam. Players avoid chasing obstacles while pacing down dynamically scaling corridors.</p>
-                
-                <div class="project-gallery">
-                    <img src="images/fskm.png" alt="Escape from FSKM Start Screen UI">
-                    <img src="images/fskm2.png" alt="Dynamic Corridor Running Action View">
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Designed a multi-pane interface separating campaign overview metrics from database records.</li>
+                            <li>Implemented robust server-side processing for managing dynamic discount codes, custom percentage reductions, and expiration validations.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Java, JSP (JavaServer Pages), NetBeans IDE, HTML/CSS, SQL Database</div>
                 </div>
 
-                <div class="project-details-list">
-                    <ul>
-                        <li>Designed detailed parallax backdrops mirroring actual institutional hallway environments (lockers, posters, water coolers).</li>
-                        <li>Programmed UI counters to seamlessly calculate real-time running scores, distance metrics (m), and pickup collection items.</li>
-                    </ul>
+                <!-- LOGICGATES HERO -->
+                <div class="project-card">
+                    <h3>LogicGates Hero</h3>
+                    <p>An educational interactive learning game designed to alleviate friction points in digital logic pedagogy. Features split-pane workspaces where users configure hardware gates to solve objective-driven circuit puzzles in real time.</p>
+                    
+                    <div class="project-img-wrapper">
+                        <img class="project-single-img" src="images/lgh2.png" alt="LogicGates Hero Gameplay Frame">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Built an interactive drag-and-drop inventory system supporting active logical components (AND, OR, NOT Gates).</li>
+                            <li>Programmed dynamic signal-line evaluations tracking binary state pathways down to reactive endpoint lightbulb triggers.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Construct 2 / Web Deployment, 2D Game Design</div>
                 </div>
-                <p><strong>Tech Stack:</strong> Construct 2 / Game Mechanics & Sprite Animation</p>
+
+                <!-- KNIGHT DEFENDER -->
+                <div class="project-card">
+                    <h3>Knight Defender</h3>
+                    <p>A stylized, fast-paced 2D lane defense action game demanding quick positioning reflexes. Players maneuver a knight avatar across vertical tracks to intercept advancing enemy waves before they compromise the kingdom boundaries.</p>
+                    
+                    <div class="project-img-wrapper">
+                        <img class="project-single-img" src="images/kd2.png" alt="Knight Defender Level Screen">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Programmed a dynamic tracking system monitoring level difficulty scaling, active timers, and live remaining counts.</li>
+                            <li>Engineered custom sprite variant spawning behaviors for distinct enemy classes including Evil Slimes, Bad Bats, and Great Golems.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Unity / C#, 2D Pixel Art Animation</div>
+                </div>
+
+                <!-- ECORECONNECT -->
+                <div class="project-card">
+                    <h3>EcoReConnect Website</h3>
+                    <p>A polished, environmental awareness portal structured to connect communities with ecology initiatives. Features modern CSS carousel banners highlighting mental health insights from nature, alongside built-in interactive engagement layers.</p>
+                    
+                    <div class="project-img-wrapper">
+                        <img class="project-single-img" src="images/ercw.png" alt="EcoReConnect Web Hub View">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Constructed a user-friendly navigation layout incorporating educational modules (Mangroves, Urban Parks).</li>
+                            <li>Embedded lightweight gamified front-end elements including a responsive ecology trivia quiz and an icon-matching mini-game.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: HTML5, CSS3 (Flexbox/Grid), JavaScript</div>
+                </div>
+
+                <!-- 3D PLAYGROUND ANIMATION -->
+                <div class="project-card">
+                    <h3>3D Playground Animation (Computer Graphics)</h3>
+                    <p>A comprehensive 3D landscape prototyping project simulating a vibrant playground environment. Focuses heavily on strict geometric transformations, lighting configurations, and multi-asset keyframe animation.</p>
+                    
+                    <div class="project-img-wrapper">
+                        <img class="project-single-img" src="images/3Dplayground.png" alt="Blender Viewport Scene Layout">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Modeled, textured, and laid out interactive environmental components including slides, a wind turbine mill, swings, a see-saw, and rotating carousels.</li>
+                            <li>Configured complex animation paths, parent-child spatial hierarchies, and camera tracking sweeps to produce a cohesive environment render.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Blender / Low-Poly 3D Asset Design & Rigging</div>
+                </div>
+
+                <!-- ESCAPE FROM FSKM -->
+                <div class="project-card">
+                    <h3>Escape From FSKM</h3>
+                    <p>A high-energy, narrative-driven 2D endless runner set inside the stylized school hallways of the FSKM faculty building at UiTM Shah Alam. Players avoid chasing obstacles while pacing down dynamically scaling corridors.</p>
+                    
+                    <div class="project-web-gallery">
+                        <img src="images/fskm.png" alt="FSKM Start Scene Interface">
+                        <img src="images/fskm2.png" alt="In-Game Running Mechanics View">
+                    </div>
+
+                    <div class="project-details-list">
+                        <ul>
+                            <li>Designed detailed parallax backdrops mirroring actual institutional hallway environments (lockers, posters, water coolers).</li>
+                            <li>Programmed UI counters to seamlessly calculate real-time running scores, distance metrics (m), and pickup collection items.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">Tech Stack: Construct 2 / Game Mechanics & Sprite Animation</div>
+                </div>
+
             </div>
         </section>
 
         <section id="education">
             <h2>Education & Certifications</h2>
-            <div class="edu-item">
-                <h3>Bachelor of Computer Science (Hons.) Multimedia Computing</h3>
-                <p><strong>Universiti Teknologi MARA (UiTM) Shah Alam</strong> | Oct 2023 - Present</p>
-                <p>Current CGPA: 3.37</p>
-            </div>
-            <div class="edu-item">
-                <h3>Certificate of Matriculation Programme (Physical Science)</h3>
-                <p><strong>Kolej Matrikulasi Pulau Pinang</strong> | July 2021 - May 2023</p>
-                <p>CGPA: 3.46</p>
-            </div>
-            <div class="cert-item">
-                <h3>Certifications & Activities</h3>
-                <ul>
-                    <li>MY5G Ericsson Malaysia Pioneers Programme (Jan 2026)</li>
-                    <li>Active Member, Multimedia Computing Society Club (Oct 2023 - Present)</li>
-                </ul>
+            <div class="edu-timeline">
+                <div class="edu-card">
+                    <h3>Bachelor of Computer Science (Hons.) Multimedia Computing</h3>
+                    <p><strong>Universiti Teknologi MARA (UiTM) Shah Alam</strong> | Oct 2023 - Present</p>
+                    <p style="color: var(--accent-primary); font-size: 0.9rem; margin-top: 4px;">Current CGPA: 3.37</p>
+                </div>
+                <div class="edu-card">
+                    <h3>Certificate of Matriculation Programme (Physical Science)</h3>
+                    <p><strong>Kolej Matrikulasi Pulau Pinang</strong> | July 2021 - May 2023</p>
+                    <p style="color: var(--accent-primary); font-size: 0.9rem; margin-top: 4px;">CGPA: 3.46</p>
+                </div>
+                <div class="edu-card">
+                    <h3>Certifications & Engagement</h3>
+                    <p>• MY5G Ericsson Malaysia Pioneers Programme (Jan 2026)</p>
+                    <p>• Active Member, Multimedia Computing Society Club (Oct 2023 - Present)</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Connect with me on <a href="https://linkedin.com" target="_blank">LinkedIn</a> or <a href="https://github.com" target="_blank">GitHub</a></p>
+        <p>&copy; 2026 Muhammad Izyanuddin. Built with HTML & CSS.</p>
+        <p style="margin-top: 10px;">
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com" target="_blank">GitHub</a>
+        </p>
     </footer>
+
 </body>
 </html>
