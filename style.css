@@ -23,3 +23,14 @@ main {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.project-details-list ul {
+    margin: 10px 0;
+    padding-left: 18px;
+    font-size: 0.92rem;
+    line-height: 1.45rem;
+    color: #4A5568; /* Balanced dark gray for crisp reading */
+}
+
+.project-details-list li {
+    margin-bottom: 6px;
+}
