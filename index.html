@@ -18,7 +18,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-box-sizing: border-box;
+            box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -172,19 +172,21 @@
             margin-bottom: 20px;
         }
 
-        /* Image Presenters */
+        /* Image & Video Presenters */
         .project-img-wrapper {
             width: 100%;
             margin: 20px 0;
             text-align: center;
         }
 
-        .project-single-img {
+        .project-single-img, .project-video {
+            width: 100%;
             max-width: 100%;
-            max-height: 400px;
+            max-height: 450px;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .project-web-gallery {
@@ -201,7 +203,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Tall layout specifically optimized for mobile screenshots (MY-Kuih Application) */
+        /* Tall layout specifically optimized for mobile screenshots */
         .project-mobile-gallery {
             display: flex;
             gap: 15px;
@@ -346,13 +348,11 @@
             <h2>Featured Projects</h2>
             <div class="projects-grid">
                 
-                <!-- MY-KUIH APPLICATION -->
                 <div class="project-card">
                     <span class="badge">Final Year Project</span>
                     <h3>MY-Kuih Application: Real-Time Kuih Recognition for Recipe Retrieval</h3>
                     <p>An interactive, mobile-responsive intelligent multimedia application designed to preserve Malaysian culinary heritage. Features an image classification core allowing users to scan traditional delicacies to receive automated database details.</p>
                     
-                    <!-- Beautiful 3-column mobile app tray -->
                     <div class="project-mobile-gallery">
                         <img src="images/kuih.jpg" alt="MY-Kuih Hub UI">
                         <img src="images/kuih2.jpg" alt="MY-Kuih Scanning Mechanism">
@@ -370,7 +370,6 @@
                     <div class="tech-stack">Tech Stack: Python, Convolutional Neural Networks (CNN), Android Studio, UI/UX Design</div>
                 </div>
 
-                <!-- DISCOUNT MANAGEMENT PORTAL -->
                 <div class="project-card">
                     <h3>Discount & Coupon Management Portal</h3>
                     <p>An enterprise-level web portal built to simplify promotional campaign creation and tracking. Features a centralized manager dashboard displaying live data aggregates, a conditional active coupon record register, and localized promotional configurations.</p>
@@ -389,13 +388,13 @@
                     <div class="tech-stack">Tech Stack: Java, JSP (JavaServer Pages), NetBeans IDE, HTML/CSS, SQL Database</div>
                 </div>
 
-                <!-- LOGICGATES HERO -->
                 <div class="project-card">
                     <h3>LogicGates Hero</h3>
                     <p>An educational interactive learning game designed to alleviate friction points in digital logic pedagogy. Features split-pane workspaces where users configure hardware gates to solve objective-driven circuit puzzles in real time.</p>
                     
-                    <div class="project-img-wrapper">
-                        <img class="project-single-img" src="images/lgh.png" src="images/lgh2.png" alt="LogicGates Hero Gameplay Frame">
+                    <div class="project-web-gallery">
+                        <img src="images/lgh.png" alt="LogicGates Hero Component System">
+                        <img src="images/lgh2.png" alt="LogicGates Hero Live Circuit Evaluation">
                     </div>
 
                     <div class="project-details-list">
@@ -407,13 +406,13 @@
                     <div class="tech-stack">Tech Stack: Construct 2 / Web Deployment, 2D Game Design</div>
                 </div>
 
-                <!-- KNIGHT DEFENDER -->
                 <div class="project-card">
                     <h3>Knight Defender</h3>
                     <p>A stylized, fast-paced 2D lane defense action game demanding quick positioning reflexes. Players maneuver a knight avatar across vertical tracks to intercept advancing enemy waves before they compromise the kingdom boundaries.</p>
                     
-                    <div class="project-img-wrapper">
-                        <img class="project-single-img" src="images/kd.png" src="images/kd2.png" alt="Knight Defender Level Screen">
+                    <div class="project-web-gallery">
+                        <img src="images/kd.png" alt="Knight Defender In-Game Defense Action">
+                        <img src="images/kd2.png" alt="Knight Defender Level Selection System">
                     </div>
 
                     <div class="project-details-list">
@@ -425,7 +424,6 @@
                     <div class="tech-stack">Tech Stack: Unity / C#, 2D Pixel Art Animation</div>
                 </div>
 
-                <!-- ECORECONNECT -->
                 <div class="project-card">
                     <h3>EcoReConnect Website</h3>
                     <p>A polished, environmental awareness portal structured to connect communities with ecology initiatives. Features modern CSS carousel banners highlighting mental health insights from nature, alongside built-in interactive engagement layers.</p>
@@ -443,13 +441,15 @@
                     <div class="tech-stack">Tech Stack: HTML, CSS, JavaScript</div>
                 </div>
 
-                <!-- 3D PLAYGROUND ANIMATION -->
                 <div class="project-card">
                     <h3>3D Playground Animation (Computer Graphics)</h3>
                     <p>A comprehensive 3D landscape prototyping project simulating a vibrant playground environment. Focuses heavily on strict geometric transformations, lighting configurations, and multi-asset keyframe animation.</p>
                     
                     <div class="project-img-wrapper">
-                        <img class="project-single-img" src="images/3Dplayground.png" alt="Blender Viewport Scene Layout">
+                        <video class="project-video" autoplay loop muted playsinline>
+                            <source src="images/CDCS2533A.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
 
                     <div class="project-details-list">
@@ -461,7 +461,6 @@
                     <div class="tech-stack">Tech Stack: Blender / Low-Poly 3D Asset Design & Rigging</div>
                 </div>
 
-                <!-- ESCAPE FROM FSKM -->
                 <div class="project-card">
                     <h3>Escape From FSKM</h3>
                     <p>A high-energy, narrative-driven 2D endless runner set inside the stylized school hallways of the FSKM faculty building at UiTM Shah Alam. Players avoid chasing obstacles while pacing down dynamically scaling corridors.</p>
